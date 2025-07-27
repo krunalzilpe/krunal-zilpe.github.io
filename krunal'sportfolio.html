@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krunal Zilpe - Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-text: #e0e0e0;
+            --secondary-text: #a0a0a0;
+            --background-dark: #1a1a1a;
+            --card-background-dark: #2a2a2a;
+            --accent-color: #00bcd4; /* Cyan */
+            --button-hover: #00a8bd;
+
+            --background-light: #f0f0f0;
+            --card-background-light: #ffffff;
+            --primary-text-light: #333333;
+            --secondary-text-light: #555555;
+        }
+
+        /* Dark mode default */
+        .dark {
+            background-color: var(--background-dark);
+            color: var(--primary-text);
+        }
+        .dark .card {
+            background-color: var(--card-background-dark);
+        }
+        .dark .text-secondary {
+            color: var(--secondary-text);
+        }
+        .dark .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--background-dark);
+        }
+        .dark .btn-primary:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* Light mode */
+        .light {
+            background-color: var(--background-light);
+            color: var(--primary-text-light);
+        }
+        .light .card {
+            background-color: var(--card-background-light);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .light .text-secondary {
+            color: var(--secondary-text-light);
+        }
+        .light .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--background-light);
+        }
+        .light .btn-primary:hover {
+            background-color: var(--button-hover);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar for better aesthetics (optional) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--background-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 4px;
+        }
+        .light::-webkit-scrollbar-track {
+            background: var(--background-light);
+        }
+        .light::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="font-sans antialiased transition-colors duration-300">
+
+    <header class="fixed top-0 left-0 w-full z-50 py-4 bg-transparent backdrop-blur-md shadow-lg">
+        <nav class="container mx-auto flex justify-between items-center px-6">
+            <a href="#" class="text-2xl font-bold text-accent-color">Krunal Zilpe</a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="text-lg hover:text-accent-color transition-colors">About</a>
+                <a href="#skills" class="text-lg hover:text-accent-color transition-colors">Skills</a>
+                <a href="#projects" class="text-lg hover:text-accent-color transition-colors">Projects</a>
+                <a href="#resume" class="text-lg hover:text-accent-color transition-colors">Resume</a>
+                <a href="#contact" class="text-lg hover:text-accent-color transition-colors">Contact</a>
+                <button id="theme-toggle" class="text-xl focus:outline-none">
+                    <i class="fas fa-sun hidden dark:inline-block"></i>
+                    <i class="fas fa-moon inline-block dark:hidden"></i>
+                </button>
+            </div>
+            <div class="md:hidden flex items-center space-x-4">
+                <button id="theme-toggle-mobile" class="text-xl focus:outline-none">
+                    <i class="fas fa-sun hidden dark:inline-block"></i>
+                    <i class="fas fa-moon inline-block dark:hidden"></i>
+                </button>
+                <button id="mobile-menu-button" class="text-3xl focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-card-background-dark py-4 text-center">
+            <a href="#about" class="block py-2 text-lg hover:text-accent-color transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a>
+            <a href="#skills" class="block py-2 text-lg hover:text-accent-color transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Skills</a>
+            <a href="#projects" class="block py-2 text-lg hover:text-accent-color transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Projects</a>
+            <a href="#resume" class="block py-2 text-lg hover:text-accent-color transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Resume</a>
+            <a href="#contact" class="block py-2 text-lg hover:text-accent-color transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
+            <div class="space-y-6" data-aos="fade-up" data-aos-duration="1000">
+                <img src="https://via.placeholder.com/180/00bcd4/FFFFFF?text=Krunal" alt="Krunal Zilpe Profile" class="rounded-full w-48 h-48 mx-auto object-cover border-4 border-accent-color shadow-lg">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-primary-text">
+                    Krunal Zilpe
+                </h1>
+                <p class="text-2xl md:text-3xl font-semibold text-accent-color">
+                    Full Stack Developer | Automation Geek | Code + Content Creator
+                </p>
+                <p class="text-xl md:text-2xl italic text-secondary-text max-w-2xl mx-auto">
+                    "Fuelled by logic, driven by curiosity, and powered by chai."
+                </p>
+                <a href="#contact" class="btn-primary py-3 px-8 text-xl rounded-full inline-block transition-transform transform hover:scale-105 shadow-lg">
+                    Hire Me
+                </a>
+            </div>
+        </section>
+
+        <hr class="border-t border-gray-700 mx-auto w-3/4 my-16">
+
+        <section id="about" class="container mx-auto py-16 px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-primary-text" data-aos="fade-down">
+                About Me
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div class="space-y-6 text-lg text-secondary-text" data-aos="fade-right" data-aos-delay="200">
+                    <p>
+                        I'm not just an engineer, I'm a **problem solver**. My foundation in Computer Technology and my obsession with IT & Automation makes me stand apart. I'm that guy who builds tools for fun, writes scripts for life hacks, and creates content to inspire.
+                    </p>
+                    <p>
+                        Currently building powerful backend systems, smart UIs, and creative digital assets — all while vlogging adventures and editing reels. My journey through B.E. Electronics Engineering (Direct 2nd Year) at YCCE Nagpur, complemented by a Diploma in Computer Technology (78%), has given me a unique perspective.
+                    </p>
+                    <p>
+                        I believe in creating solutions that are not just functional but also elegant and efficient. If there's a problem, I'm always looking for a creative, code-driven way to solve it.
+                    </p>
+                </div>
+                <div class="space-y-6" data-aos="fade-left" data-aos-delay="400">
+                    <h3 class="text-3xl font-bold text-primary-text">Unique Selling Points:</h3>
+                    <ul class="list-none space-y-4">
+                        <li class="flex items-center text-lg text-secondary-text">
+                            <i class="fas fa-robot text-accent-color mr-3 text-xl"></i>
+                            Uses ChatGPT, Gemini, and AI tools smartly to build faster
+                        </li>
+                        <li class="flex items-center text-lg text-secondary-text">
+                            <i class="fas fa-video text-accent-color mr-3 text-xl"></i>
+                            Created a 61-day daily reel challenge and completed it
+                        </li>
+                        <li class="flex items-center text-lg text-secondary-text">
+                            <i class="fas fa-code text-accent-color mr-3 text-xl"></i>
+                            Writes clean, commented code
+                        </li>
+                        <li class="flex items-center text-lg text-secondary-text">
+                            <i class="fas fa-rocket text-accent-color mr-3 text-xl"></i>
+                            Loves building things from scratch — no bootstrap, pure logic
+                        </li>
+                        <li class="flex items-center text-lg text-secondary-text">
+                            <i class="fas fa-tasks text-accent-color mr-3 text-xl"></i>
+                            Fixes PCs, repairs tables, shoots videos, and automates life — multitasker mode ON
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-t border-gray-700 mx-auto w-3/4 my-16">
+
+        <section id="skills" class="container mx-auto py-16 px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-primary-text" data-aos="fade-down">
+                Skills & Tools
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-3xl font-bold mb-6 text-accent-color">Languages</h3>
+                    <ul class="space-y-4 text-lg text-secondary-text">
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>Python</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>Java</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>C / C++</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>JavaScript</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>PHP</li>
+                    </ul>
+                </div>
+                <div class="card p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-3xl font-bold mb-6 text-accent-color">Frontend</h3>
+                    <ul class="space-y-4 text-lg text-secondary-text">
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>HTML</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>CSS</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>JavaScript</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>Tailwind CSS</li>
+                    </ul>
+                </div>
+                <div class="card p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-3xl font-bold mb-6 text-accent-color">Backend</h3>
+                    <ul class="space-y-4 text-lg text-secondary-text">
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>Flask</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>MySQL</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>SQLAlchemy</li>
+                    </ul>
+                </div>
+                <div class="card p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-3xl font-bold mb-6 text-accent-color">Tools</h3>
+                    <ul class="space-y-4 text-lg text-secondary-text">
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>Git</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>VS Code</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>Canva</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>Power BI (Basics)</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>Figma</li>
+                    </ul>
+                </div>
+                <div class="card p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="text-3xl font-bold mb-6 text-accent-color">Other Strengths</h3>
+                    <ul class="space-y-4 text-lg text-secondary-text">
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>Strong grasp on Networking</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>Microcontrollers</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-accent-color mr-2"></i>Circuit Analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-t border-gray-700 mx-auto w-3/4 my-16">
+
+        <section id="projects" class="container mx-auto py-16 px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-primary-text" data-aos="fade-down">
+                My Projects
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="card p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold mb-3 text-accent-color">Sports Club Management System</h3>
+                    <p class="text-secondary-text mb-4">
+                        Full Stack web application built using Flask + MySQL. Handles user login, bookings, payments, and features a comprehensive admin dashboard. Designed with a clean UI and a modular codebase for easy maintenance and scalability.
+                    </p>
+                    <p class="text-sm font-semibold mb-4 text-primary-text">
+                        Technologies: Flask, MySQL, HTML, CSS, JavaScript
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/krunalzilpe/sports-club-management-system" target="_blank" class="btn-primary py-2 px-4 rounded-full text-sm inline-flex items-center group">
+                            <i class="fab fa-github mr-2 group-hover:scale-110 transition-transform"></i> View Code
+                        </a>
+                        </div>
+                </div>
+
+                <div class="card p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold mb-3 text-accent-color">Auto File Sorter</h3>
+                    <p class="text-secondary-text mb-4">
+                        A robust desktop tool developed with Python that intelligently organizes your downloads folder. With a single click, it categorizes and moves files into designated folders (e.g., Documents, Images, Videos), decluttering your workspace.
+                    </p>
+                    <p class="text-sm font-semibold mb-4 text-primary-text">
+                        Technologies: Python
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/krunalzilpe/auto-file-sorter" target="_blank" class="btn-primary py-2 px-4 rounded-full text-sm inline-flex items-center group">
+                            <i class="fab fa-github mr-2 group-hover:scale-110 transition-transform"></i> View Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-2xl font-bold mb-3 text-accent-color">Jarvis CLI – Your Terminal Assistant</h3>
+                    <p class="text-secondary-text mb-4">
+                        A versatile Python script designed to act as your personal command-line assistant. It can open applications, read out notifications, perform quick searches, and more, all through simple text commands.
+                    </p>
+                    <p class="text-sm font-semibold mb-4 text-primary-text">
+                        Technologies: Python
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/krunalzilpe/jarvis-cli" target="_blank" class="btn-primary py-2 px-4 rounded-full text-sm inline-flex items-center group">
+                            <i class="fab fa-github mr-2 group-hover:scale-110 transition-transform"></i> View Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-2xl font-bold mb-3 text-accent-color">Interactive Developer Portfolio (This Site)</h3>
+                    <p class="text-secondary-text mb-4">
+                        You're looking at it! This custom-coded portfolio site showcases a modern, dark-themed design with smooth scroll animations and a light/dark mode toggle. Built for optimal performance and a premium user experience.
+                    </p>
+                    <p class="text-sm font-semibold mb-4 text-primary-text">
+                        Technologies: HTML, Tailwind CSS, JavaScript, AOS
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/krunalzilpe/interactive-developer-portfolio" target="_blank" class="btn-primary py-2 px-4 rounded-full text-sm inline-flex items-center group">
+                            <i class="fab fa-github mr-2 group-hover:scale-110 transition-transform"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center" data-aos="fade-up">
+                <h3 class="text-3xl font-bold mb-6 text-primary-text">Coming Soon...</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                    <div class="card p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold mb-2 text-accent-color">Budget Tracker Web App</h4>
+                        <p class="text-secondary-text">A Flask-based web application to help manage personal finances efficiently.</p>
+                    </div>
+                    <div class="card p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold mb-2 text-accent-color">Flask-based Notes App with Speech-to-Text</h4>
+                        <p class="text-secondary-text">An innovative notes application integrating speech recognition for hands-free note-taking.</p>
+                    </div>
+                    <div class="card p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold mb-2 text-accent-color">IoT Switch with NodeMCU + Python Dashboard</h4>
+                        <p class="text-secondary-text">A smart IoT solution for controlling devices, managed via a custom Python dashboard.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-t border-gray-700 mx-auto w-3/4 my-16">
+
+        <section id="resume" class="container mx-auto py-16 px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-primary-text" data-aos="fade-down">
+                My Resume
+            </h2>
+            <p class="text-lg text-secondary-text mb-8" data-aos="fade-up" data-aos-delay="100">
+                Ready to dive deeper into my professional journey and technical skills? Download my full resume below.
+            </p>
+            <a href="krunal_resume.pdf" download="krunal_resume.pdf" class="btn-primary py-4 px-10 text-2xl rounded-full inline-block transition-transform transform hover:scale-105 shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fas fa-download mr-3"></i> Download Resume
+            </a>
+        </section>
+
+        <hr class="border-t border-gray-700 mx-auto w-3/4 my-16">
+
+        <section id="contact" class="container mx-auto py-16 px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-primary-text" data-aos="fade-down">
+                Get in Touch
+            </h2>
+            <div class="max-w-xl mx-auto card p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                <p class="text-center text-lg text-secondary-text mb-8">
+                    Have a project idea, a question, or just want to say hi? Feel free to drop me a message! Let's collaborate.
+                </p>
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-primary-text text-lg font-semibold mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="w-full p-3 rounded-md bg-background-dark border border-gray-600 focus:border-accent-color focus:ring focus:ring-accent-color focus:ring-opacity-50 text-primary-text" placeholder="Your Name" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-primary-text text-lg font-semibold mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full p-3 rounded-md bg-background-dark border border-gray-600 focus:border-accent-color focus:ring focus:ring-accent-color focus:ring-opacity-50 text-primary-text" placeholder="your@example.com" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-primary-text text-lg font-semibold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" class="w-full p-3 rounded-md bg-background-dark border border-gray-600 focus:border-accent-color focus:ring focus:ring-accent-color focus:ring-opacity-50 text-primary-text" placeholder="Your message..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full py-3 text-xl rounded-md transition-transform transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-paper-plane mr-2"></i> Send Message
+                    </button>
+                    <div id="form-status" class="mt-4 text-center text-lg hidden"></div>
+                </form>
+
+                <div class="mt-12 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold mb-6 text-primary-text">Connect with me:</h3>
+                    <div class="flex justify-center space-x-6">
+                        <a href="https://github.com/krunalzilpe" target="_blank" class="text-4xl text-secondary-text hover:text-accent-color transform hover:scale-125 transition-transform" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/krunalzilpe" target="_blank" class="text-4xl text-secondary-text hover:text-accent-color transform hover:scale-125 transition-transform" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://instagram.com/the_krunal_zilpe" target="_blank" class="text-4xl text-secondary-text hover:text-accent-color transform hover:scale-125 transition-transform" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com/channel/UC-YOUR-YOUTUBE-ID" target="_blank" class="text-4xl text-secondary-text hover:text-accent-color transform hover:scale-125 transition-transform" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="mailto:your_email@example.com" class="text-4xl text-secondary-text hover:text-accent-color transform hover:scale-125 transition-transform" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 text-center text-secondary-text text-sm bg-card-background-dark">
+        <p>&copy; 2025 Krunal Zilpe. All rights reserved.</p>
+        <p class="mt-2">Built with <span class="text-red-500">&hearts;</span> and lots of <span class="text-accent-color">code</span>.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            disable: 'mobile' // Disable AOS on mobile for performance if needed
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
